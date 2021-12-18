@@ -1,5 +1,8 @@
 package main
 
+//One general principle of using Go channels is
+// 1. don't close a channel from the receiver side
+// 2. don't close a channel if the channel has multiple concurrent senders.
 import (
 	"fmt"
 )

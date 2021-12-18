@@ -7,6 +7,8 @@ import (
 
 var wordSet = []string{"red", "green", "blue", "yellow", "white"}
 
+//var waitG sync.WaitGroup
+
 func main() {
 	receivers := []interface{}{receiver1, receiver2}
 
@@ -14,10 +16,11 @@ func main() {
 	var b = make(chan bool)
 
 	go sender(c)
-
+	//waitG.Add(len(receivers))
 	for i := range receivers {
 		go receivers[i].(func(chan bool, chan string))(b, c)
 	}
+	//waitG.Wait()
 
 	for range receivers {
 		<-b
@@ -37,6 +40,7 @@ func receiver1(b chan bool, c chan string) {
 		time.Sleep(2 * time.Second)
 	}
 
+	//waitG.Done()
 	b <- true
 }
 
@@ -46,5 +50,6 @@ func receiver2(b chan bool, c chan string) {
 		time.Sleep(time.Second)
 	}
 
+	//waitG.Done()
 	b <- true
 }
