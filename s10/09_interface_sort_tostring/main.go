@@ -27,6 +27,7 @@ func main() {
 		{"Michael Jordan", "USA"},
 	}
 
+	fmt.Println(p[0])
 	fmt.Println(&p[0])
 	fmt.Println(p)
 
