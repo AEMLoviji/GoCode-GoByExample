@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	athletes "./types"
+	"github.com/aemloviji/GoCode-GoByExample/s09-12-exported/athletes"
 )
 
 func changeAthleteName1(p athletes.Player) {
