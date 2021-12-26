@@ -1,0 +1,1 @@
+text goes here, to demonstrate of usage os.Open() and io.Copy() functions to read file content and copy it as is to stdout
